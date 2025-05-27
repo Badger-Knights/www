@@ -22,36 +22,59 @@ export default function BadgersKnightsSite() {
         </p>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto py-12">
-        <Card className="bg-gray-900 border border-gray-700">
-          <CardContent className="p-6">
-            <Users className="text-blue-400 w-8 h-8 mb-2" />
-            <h3 className="text-xl font-semibold">Who We Are</h3>
-            <p className="text-sm text-gray-400 mt-2">
-              A youth-driven chess club focused on growth, mentorship, and national competitiveness, with certified coaches and community engagement.
-            </p>
-          </CardContent>
-        </Card>
-        <Card className="bg-gray-900 border border-gray-700">
-          <CardContent className="p-6">
-            <Trophy className="text-yellow-400 w-8 h-8 mb-2" />
-            <h3 className="text-xl font-semibold">Tournaments</h3>
-            <p className="text-sm text-gray-400 mt-2">
-              Active participation in major events like the SA Open, JMCA, Botswana Series, and Cape Town Masters.
-            </p>
-          </CardContent>
-        </Card>
-        <Card className="bg-gray-900 border border-gray-700">
-          <CardContent className="p-6">
-            <BadgeCheck className="text-green-400 w-8 h-8 mb-2" />
-            <h3 className="text-xl font-semibold">Mission</h3>
-            <p className="text-sm text-gray-400 mt-2">
-              To build a generation of strategic thinkers and resilient leaders through competitive and educational chess programs.
-            </p>
-          </CardContent>
-        </Card>
+      {/* Team Carousel */}
+      <section className="max-w-6xl mx-auto py-16">
+        <h2 className="text-3xl font-bold mb-6 text-center">Meet the Knights</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { name: "Chigozie Egeonu", title: "Board 1 - Tactician", img: "/players/Chigozie Egeonu.jpg" },
+            { name: "Hadriel Khumalo", title: "Opening Specialist", img: "/players/Hadriel Babongile Khumalo.jpg" },
+            { name: "Zakhele Kambule", title: "Midgame Strategist", img: "/players/Zakhele Kambule.jpg" },
+            { name: "Ayomikun Joseph", title: "Endgame Closer", img: "/players/Ayomikun Joseph.jpg" },
+            { name: "Chizitere Egeonu", title: "Youth Cadet", img: "/players/chizitere egeonu.jpg" },
+            { name: "Emmanuel Okechukwu", title: "Coach & Mentor", img: "/players/Emmanuel Junior Okechukwu.jpg" }
+          ].map((player) => (
+            <motion.div whileHover={{ scale: 1.05 }} key={player.name} className="bg-gray-800 p-4 rounded-xl text-center shadow-md">
+              <img src={player.img} alt={player.name} className="w-24 h-24 mx-auto rounded-full mb-3 object-cover" />
+              <h3 className="text-lg font-semibold">{player.name}</h3>
+              <p className="text-sm text-gray-400">{player.title}</p>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="max-w-4xl mx-auto py-16 text-center">
+        <h2 className="text-3xl font-bold mb-6">What People Say</h2>
+        <div className="space-y-8">
+          <blockquote className="italic text-gray-300">“My son’s confidence has soared thanks to Badgers Knights!” – Parent of Ayomikun</blockquote>
+          <blockquote className="italic text-gray-300">“This club has taught me how to win with humility and lose with grace.” – Zakes</blockquote>
+          <blockquote className="italic text-gray-300">“More than a chess club — it’s a mentorship community.” – Coach Emmanuel</blockquote>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="max-w-6xl mx-auto py-16">
+        <h2 className="text-3xl font-bold mb-6 text-center">Tournament Highlights</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <iframe className="w-full aspect-video rounded-lg" src="https://www.youtube.com/embed/Dtd40cHQQlk" title="Tournament Highlight" allowFullScreen></iframe>
+          <iframe className="w-full aspect-video rounded-lg" src="https://www.youtube.com/embed/YLo6g58vUm0" title="Blitz Night" allowFullScreen></iframe>
+          <iframe className="w-full aspect-video rounded-lg" src="https://www.youtube.com/embed/5q8YAUTYAyk" title="SA Open Recap" allowFullScreen></iframe>
+        </div>
+      </section>
+
+      {/* Contact Form */}
+      <section className="max-w-xl mx-auto py-16 text-center">
+        <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
+        <form action="https://formspree.io/f/xwkgeqna" method="POST" className="space-y-4">
+          <input type="text" name="name" placeholder="Your Name" required className="w-full px-4 py-2 rounded bg-gray-800 text-white placeholder-gray-400" />
+          <input type="email" name="email" placeholder="Your Email" required className="w-full px-4 py-2 rounded bg-gray-800 text-white placeholder-gray-400" />
+          <textarea name="message" rows="5" placeholder="Your Message" required className="w-full px-4 py-2 rounded bg-gray-800 text-white placeholder-gray-400"></textarea>
+          <button type="submit" className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded font-semibold">Send Message</button>
+        </form>
+      </section>
+
+      {/* Events Section */}
       <section className="text-center py-12 max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold mb-4">Upcoming Events</h2>
         <p className="text-gray-400 mb-6">Track our journey and get involved in upcoming challenges and championships.</p>
@@ -63,6 +86,7 @@ export default function BadgersKnightsSite() {
         </ul>
       </section>
 
+      {/* WhatsApp CTA */}
       <section className="text-center py-16">
         <h2 className="text-2xl font-bold mb-4">Support the Movement</h2>
         <p className="text-gray-400 mb-6">Partner with us in changing lives through chess. Sponsors, donors, and volunteers welcome.</p>
@@ -75,4 +99,3 @@ export default function BadgersKnightsSite() {
     </main>
   );
 }
-
